@@ -10,7 +10,7 @@ terraform {
     endpoints = {
       s3 = "https://storage.yandexcloud.net"
     }
-    bucket = "kittygram-s3-bucket"
+    bucket = "itmo-bucket"
     region = "ru-central1"
     key    = "state/tf-state.tfstate"
 
