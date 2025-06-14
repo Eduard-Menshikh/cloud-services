@@ -6,3 +6,6 @@ POSTGRES_HOST=postgres
 SECRET_KEY=something-really-secret
 DEBUG=false
 ALLOWED_HOSTS=localhost,127.0.0.1,158.160.138.185
+BACKEND_WORKDIR=app
+FRONTEND_WORKDIR=app
+COMPOSE_FILE=docker-compose.production.yml
