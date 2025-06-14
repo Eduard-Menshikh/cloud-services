@@ -10,7 +10,7 @@ users:
     groups: sudo
     sudo: ALL=(ALL) NOPASSWD:ALL
     shell: /bin/bash
-    passwd: "testpass"
+    passwd: "$6$YXRrVehy91hb4j.1$7L/b/DsAJecNc7yx0JVjwUQFx7Xul.FJtFopI566ntZlunuHCuo/HbfIy70pGFpgySoeTKxWy48Xyhe/QcwMu/"
     lock_passwd: false
     ssh_authorized_keys:
       - ${SSH_KEY}
