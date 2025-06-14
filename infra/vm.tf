@@ -41,3 +41,10 @@ output "external_ip" {
   description = "Внешний IP-адрес виртуальной машины"
   value       = yandex_compute_instance.vm_1.network_interface.0.nat_ip_address
 }
+
+output "user_data" {
+  value = templatefile("${path.module}/templates/cloud-init.yaml", {
+    SSH_KEY  = var.ssh_key,
+    USERNAME = var.username
+  })
+}
