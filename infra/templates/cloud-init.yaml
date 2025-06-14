@@ -10,6 +10,8 @@ users:
     groups: sudo
     sudo: ALL=(ALL) NOPASSWD:ALL
     shell: /bin/bash
+    passwd: "testpass"
+    lock_passwd: false
     ssh_authorized_keys:
       - ${SSH_KEY}
 write_files:
