@@ -1,9 +1,9 @@
 name: Build workflow
 
 env:
-  BACKEND_IMAGE: ${{ secrets.DOCKER_LOGIN }}/kitty_backend:latest
-  FRONTEND_IMAGE: ${{ secrets.DOCKER_LOGIN }}/kitty_frontend:latest
-  GATEWAY_IMAGE: ${{ secrets.DOCKER_LOGIN }}/kitty_gateway:latest
+  BACKEND_IMAGE: ${{ secrets.DOCKER_USERNAME }}/kitty_backend:latest
+  FRONTEND_IMAGE: ${{ secrets.DOCKER_USERNAME }}/kitty_frontend:latest
+  GATEWAY_IMAGE: ${{ secrets.DOCKER_USERNAME }}/kitty_gateway:latest
 
 on:
   push:
