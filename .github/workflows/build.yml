@@ -60,8 +60,8 @@ jobs:
       - name: Login to Docker
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_LOGIN }}
-          password: ${{ secrets.DOCKER_TOKEN }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Push to DockerHub
         uses: docker/build-push-action@v4
         with:
@@ -70,7 +70,7 @@ jobs:
             FRONTEND_WORKDIR=${{ env.BACKEND_WORKDIR }}
           push: true
           tags: ${{ env.BACKEND_IMAGE }}
-          cache-from: type=registry,ref=${{ secrets.DOCKER_LOGIN }}/kitty_backend:cache
+          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/kitty_backend:cache
           cache-to: type=inline
 
   build_frontend_and_push_to_docker_hub:
@@ -85,8 +85,8 @@ jobs:
       - name: Login to Docker
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_LOGIN }}
-          password: ${{ secrets.DOCKER_TOKEN }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Push to DockerHub
         uses: docker/build-push-action@v4
         with:
@@ -95,7 +95,7 @@ jobs:
             FRONTEND_WORKDIR=${{ env.FRONTEND_WORKDIR }}
           push: true
           tags: ${{ env.FRONTEND_IMAGE }}
-          cache-from: type=registry,ref=${{ secrets.DOCKER_LOGIN }}/kitty_frontend:cache
+          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/kitty_frontend:cache
           cache-to: type=inline
 
   build_gateway_and_push_to_docker_hub:
@@ -109,13 +109,13 @@ jobs:
       - name: Login to Docker
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_LOGIN }}
-          password: ${{ secrets.DOCKER_TOKEN }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Push to DockerHub
         uses: docker/build-push-action@v4
         with:
           context: ./nginx/
           push: true
           tags: ${{ env.GATEWAY_IMAGE }}
-          cache-from: type=registry,ref=${{ secrets.DOCKER_LOGIN }}/kitty_gateway:cache
+          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/kitty_gateway:cache
           cache-to: type=inline
